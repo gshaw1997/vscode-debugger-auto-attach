@@ -9,13 +9,31 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "*"
+  ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "debugger-auto-attach.helloWorld",
-        "title": "Hello World"
+        "command": "debugger-auto-attach.setTimeout",
+        "title": "Debugger Auto Attach: Timeout"
+      },
+      {
+        "command": "debugger-auto-attach.setRetryInterval",
+        "title": "Debugger Auto Attach: Retry Interval"
+      },
+      {
+        "command": "debugger-auto-attach.selectLaunchConfig",
+        "title": "Debugger Auto Attach: Select Launch Configuration"
+      },
+      {
+        "command": "debugger-auto-attach.toggleAutoAttach",
+        "title": "Debugger Auto Attach: Toggle Auto-Attach"
+      },
+      {
+        "command": "debugger-auto-attach.restartAutoAttach",
+        "title": "Debugger Auto Attach: Restart Auto-Attach"
       }
     ]
   },
