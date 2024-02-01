@@ -1,71 +1,60 @@
-# debugger-auto-attach README
+# Debugger Auto Attach for Visual Studio Code
 
-This is the README for your extension "debugger-auto-attach". After writing up a brief description, we recommend including the following sections.
+Automatically attaches a debugger to your development process, streamlining your workflow by eliminating the need to manually start your debug sessions. Ideal for developers working on dynamic applications that require frequent debugging or hot reloading.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- **Automatic Debugger Attachment**: Automatically attaches a debugger to your specified port, making the development process smoother and more efficient.
+- **Customizable Timeout**: Set custom timeouts for debug session starts, giving you control over how long the extension waits for a session to begin before timing out.
+- **Retry Mechanism**: Automatically retries attaching the debugger if the first attempt fails, ensuring robustness in unstable network conditions or with flaky debug servers.
+- **Launch Configuration Selection**: Easily select and switch between different launch configurations directly from the VS Code status bar.
+- **Auto-Restart Capability**: Automatically restarts debugging sessions based on user-defined intervals, perfect for watching and debugging long-running applications.
 
-For example if there is an image subfolder under your extension project workspace:
+## Installation
 
-\!\[feature X\]\(images/feature-x.png\)
+1. Open Visual Studio Code.
+2. Go to the Extensions view by clicking on the square icon on the sidebar or pressing `Ctrl+Shift+X`.
+3. Search for "Debugger Auto Attach".
+4. Click on the Install button.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+Alternatively, you can install the extension via the Command Palette:
 
-## Requirements
+1. Open the Command Palette with `Ctrl+Shift+P`.
+2. Type `ext install debugger-auto-attach` and press Enter.
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+## Usage
 
-## Extension Settings
+After installation, "Debugger Auto Attach" will automatically attempt to attach to the debugger specified in your project's launch configuration. To customize the extension settings:
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+1. Open the Command Palette with `Ctrl+Shift+P`.
+2. Type `Preferences: Open Settings (JSON)` and press Enter.
+3. Add or edit the following settings as needed:
 
-For example:
+```json
+{
+  "debuggerAutoAttach.launchConfigFile": "path/to/your/launch.json", // By default this extension will use .vscode/launch.json
+  "debuggerAutoAttach.isAutoAttachEnabled": true,
+  "debuggerAutoAttach.debugSessionStartTimeout": 30000, // 30 seconds
+  "debuggerAutoAttach.autoRestartTimeout": 5000, // 5 seconds
+  "debuggerAutoAttach.retryInterval": 500 // 1/2 second
+}
+```
 
-This extension contributes the following settings:
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+## Commands
 
-## Known Issues
+This extension contributes the following commands, accessible from the Command Palette (`Ctrl+Shift+P`):
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+- `Debugger Auto Attach: Timeout`: Set the timeout for debugger attachment.
+- `Debugger Auto Attach: Retry Interval`: Set the interval between retry attempts for debugger attachment.
+- `Debugger Auto Attach: Select Launch Configuration`: Select the launch configuration file to use for debugging.
+- `Debugger Auto Attach: Toggle Auto-Attach`: Enable or disable automatic debugger attachment.
+- `Debugger Auto Attach: Restart Auto-Attach`: Restart the auto-attach process.
 
-## Release Notes
+## Contributing
 
-Users appreciate release notes as you update your extension.
+Contributions are always welcome! Whether it's submitting bugs, requesting features, or contributing code, please feel free to make your contribution public through GitHub issues and pull requests.
 
-### 1.0.0
+## License
 
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

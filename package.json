@@ -2,13 +2,32 @@
   "name": "debugger-auto-attach",
   "displayName": "Debugger Auto Attach",
   "description": "Auto attaches any debugger on any port",
+  "publisher": "thegiicode",
+  "icon": "images/logo.png",
   "version": "0.0.1",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gshaw1997/vscode-debugger-auto-attach.git"
+  },  
   "engines": {
     "vscode": "^1.85.0"
   },
   "categories": [
-    "Other"
+    "Other",
+    "Programming Languages",
+    "Debuggers"
   ],
+"keywords": [
+    "Auto",
+    "Auto Attach",
+    "Auto-Attach",
+    "Debugger"
+],
+"bugs": {
+    "url": "https://github.com/gshaw1997/vscode-debugger-auto-attach/issues"
+},
+"homepage": "https://github.com/gshaw1997/vscode-debugger-auto-attach/blob/master/README.md",
   "activationEvents": [
     "*"
   ],
@@ -35,7 +54,37 @@
         "command": "debugger-auto-attach.restartAutoAttach",
         "title": "Debugger Auto Attach: Restart Auto-Attach"
       }
-    ]
+    ],
+    "configuration": {
+      "title": "Debugger Auto Attach",
+      "properties": {
+        "debuggerAutoAttach.launchConfigFile": {
+          "type": "string",
+          "default": "launch.json",
+          "description": "Path to the launch configuration file."
+        },
+        "debuggerAutoAttach.isAutoAttachEnabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable or disable auto-attaching of the debugger."
+        },
+        "debuggerAutoAttach.debugSessionStartTimeout": {
+          "type": "number",
+          "default": 30000,
+          "description": "Timeout in milliseconds to wait for the debug session to start."
+        },
+        "debuggerAutoAttach.autoRestartTimeout": {
+          "type": "number",
+          "default": 5000,
+          "description": "Timeout in milliseconds to wait before auto-restarting the debug session."
+        },
+        "debuggerAutoAttach.retryInterval": {
+          "type": "number",
+          "default": 500,
+          "description": "Interval in milliseconds to wait between retries when attempting to start the debug session."
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "yarn run package",
